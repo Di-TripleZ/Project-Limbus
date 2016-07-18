@@ -36,8 +36,8 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 
 	function checkEventHome() {
 		thunder(400);
-		showTextEffect(800, '.intertext2', 5);
-		showTextEffect(1200, '.intertext3', 1.5);
+		showTextEffect(800, '.textParallax2', 5);
+		showTextEffect(1200, '.textParallax3', 1.5);
 		showFinishButton(1200);
 	}
 
@@ -101,17 +101,29 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 
 	}
 
-	function makeTimeout(position, selector, delay) {
-		showTextEffect(position, selector, delay);
-	}
-
 	function init12() {
-		showText('#view11-slide2-text1', 5);
+		showTextEffect(400, '#view11-slide2-text1', 5);
+		setTimeout(settimeout1, 5000)
 	}
 
+	function settimeout1() {
+		showTextEffect(400, '#view11-slide2-text2', 5);
+		setTimeout(settimeout2, 5000)
+	}
 
+	function settimeout2() {
+		showTextEffect(400, '#view11-slide2-text3', 5);
+		setTimeout(settimeout3, 5000)
+	}
 
+	function settimeout3() {
+		showTextEffect(400, '#view11-slide2-text4', 10);
+		setTimeout(settimeout4, 8000)
+	}
 
+	function settimeout4() {
+		showTextEffect(400, '#view11-slide2-text5', 50);
+	}
 	function checkEventEp1View1() {
 		init12();
 	}
@@ -122,7 +134,6 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 	// }, false);
 
 	init11();
-	init12()
 }]);
 
 var thunderSound = new Audio('mp3/thunder.mp3');

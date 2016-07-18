@@ -5,22 +5,6 @@
     --main-title-font-family: "Verdana", "Helvetica Neue", sans-serif;
 }
 
-body {
-    background-color: var(--main-bg-color);
-}
-
-body:not button,
-nav,
-a {
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-
-     -khtml-user-select: none;
-    -webkit-touch-callout: none;
-}
-
 @font-face {
     font-family: "Volkhov";
 
@@ -39,13 +23,61 @@ a {
     src: url(/fonts/Wet-Dream.ttf) format("truetype");
 }
 
+
+/* Common */
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+body:not button,
+nav,
+a {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+     -khtml-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+i.fa {
+    padding-left: 10px;
+    margin-right: 15px;
+}
+
+.hid {
+    display: none;
+}
+
+.visuallyhidden {
+    opacity: .1;
+}
+
+.normal-text {
+    font-family: var(--main-title-font-family);
+
+    color: var(--main-font-color);
+}
+
+.truelies {
+    font-family: "True-Lies", var(--main-title-font-family) !important;
+}
+
+
+/*End Common*/
+
+
+/*Navigator*/
+
 .headerLimbus {
     height: 70px;
 
     background-color: var(--headerBackgroundColor);
 }
 
-.darkBackground {
+.navBackground {
     width: 100px;
     height: 60px;
     padding-left: 20px;
@@ -53,6 +85,15 @@ a {
 
 .nav-wrapper {
     vertical-align: center;
+}
+
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse,
+nav a.button-collapse i {
+    height: 70px;
+
+    line-height: 70px;
 }
 
 nav ul a {
@@ -72,37 +113,29 @@ nav ul a:hover {
     background-color: #6d6d6d;
 }
 
-nav,
-nav .nav-wrapper i,
-nav a.button-collapse,
-nav a.button-collapse i {
-    height: 70px;
 
-    line-height: 70px;
-}
+/*Navigator End*/
+
+
+/*Home Page */
 
 .main-title {
     margin: 10px 0;
 
-    font-family: "True-Lies",var(--main-title-font-family);
+    font-family: "True-Lies", var(--main-title-font-family);
 
     color: var(--headerBackgroundColor);
 }
 
-.left-main {
+.left-title-main {
     padding-right: 100px;
 }
 
-.right-main {
+.right-title-main {
     padding-left: 100px;
 }
 
-i.fa {
-    padding-left: 10px;
-    margin-right: 15px;
-}
-
-.sep1 {
+.separatorHome1 {
     /* IE6-9 */
     width: 100%;
     max-width: 100%;
@@ -133,15 +166,6 @@ i.fa {
     background-size: cover;
 }
 
-
-.invert {
-    -webkit-filter: invert(100%);
-       -moz-filter: invert(100%);
-        -ms-filter: invert(100%);
-         -o-filter: invert(100%);
-            filter: invert(100%);
-}
-
 .fa-exclamation-triangle {
     color: #6d7713;
 }
@@ -154,21 +178,10 @@ i.fa {
     font-size: 20px;
 }
 
-.light {
-    color: var(--main-font-color);
-}
-
 .parallax img {
     display: inline;
 
     text-align: right;
-}
-
-.intertext3,
-.intertext2 {
-    display: none;
-
-    font-family: "True-Lies",var(--main-title-font-family);
 }
 
 .row .col.s12.tlt {
@@ -176,26 +189,36 @@ i.fa {
 }
 
 .parallax-container.parallax3 .light.intertext3 {
-    width: 30% text-align: left;
+    width: 30%;
+
+    text-align: left;
 
     color: #e0d088;
 }
 
 .btn-large.main-btn {
     height: 50px;
+    margin-top: 50px;
+    margin-right: 100px;
 
     transition: all 2s linear;
 
     background-color: var(--main-bg-color) !important;
 }
 
-.hidden {
-    display: none;
+.invert {
+    -webkit-filter: invert(100%);
+       -moz-filter: invert(100%);
+        -ms-filter: invert(100%);
+         -o-filter: invert(100%);
+            filter: invert(100%);
 }
 
-.visuallyhidden {
-    opacity: .1;
-}
+
+/* Home Page Ending*/
+
+
+/* Warning Page */
 
 .container.warning {
     width: 100%;
@@ -250,6 +273,12 @@ i.fa {
     opacity: 0;
 }
 
+
+/* Warning End */
+
+
+/* Episode 1-1 */
+
 .text-slide1,
 .text-slide1-1 {
     position: absolute;
@@ -270,10 +299,4 @@ i.fa {
 
 .divisor {
     background-color: var(--main-bg-color);
-}
-
-.text-divisor {
-    font-family: var(--main-title-font-family);
-
-    color: var(--main-font-color);
 }
