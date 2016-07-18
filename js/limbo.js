@@ -35,10 +35,16 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 
 
 	function checkEventHome() {
-		Thunder(400);
+		thunder(400);
 		showTextEffect(800, '.intertext2', 5);
 		showTextEffect(1200, '.intertext3', 1.5);
 		showFinishButton(1200);
+	}
+
+	function thunder(position) {
+		if (topWeb >= position - 10 && topWeb <= position + 10 && thundered === false) {
+			thunderEffect();
+		}
 	}
 
 }]);
@@ -62,12 +68,12 @@ app.controller("WarningController", ['$scope', function($scope) {
 
 	$('#startBtnWarning').on('click', function() {
 		console.log('Hello World!');
-		evilLaughSound.play()
-		$('.transitionToStart').css('opacity', '1')
-		$('.transitionToStart').css('z-index', '2')
+		evilLaughSound.play();
+		$('.transitionToStart').css('opacity', '1');
+		$('.transitionToStart').css('z-index', '2');
 		setTimeout(function() {
-			$(location).attr('href', '#/Darkest-Nightmares')
-		}, 5205)
+			$(location).attr('href', '#/Darkest-Nightmares');
+		}, 5205);
 	});
 
 }]);
@@ -88,41 +94,46 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 	function init11() {
 		setTimeout(function() {
 			showText('.text-slide1', 4);
-		}, 1)
+		}, 1);
 		setTimeout(function() {
 			showText('.text-slide1-1', 10);
 		}, 3500);
 
 	}
 
-	init11()
+	function makeTimeout(position, selector, delay) {
+		showTextEffect(position, selector, delay);
+	}
+
+	function init12() {
+		showText('#view11-slide2-text1', 5);
+	}
 
 
-	function checkEventEp1View1() {}
 
-	tocataLoop.addEventListener('ended', function() {
-		this.currentTime = 0;
-		this.play();
-	}, false);
 
+	function checkEventEp1View1() {
+		init12();
+	}
+
+	// tocataLoop.addEventListener('ended', function() {
+	// 	this.currentTime = 0;
+	// 	this.play();
+	// }, false);
+
+	init11();
+	init12()
 }]);
 
 var thunderSound = new Audio('mp3/thunder.mp3');
-var evilLaughSound = new Audio('mp3/evilLaugh.ogg')
-var tocataStart = new Audio('mp3/tocata-start.wav')
-var tocataLoop = new Audio('mp3/tocata-loop.wav')
+var evilLaughSound = new Audio('mp3/evilLaugh.ogg');
+var tocataStart = new Audio('mp3/tocata-start.wav');
+var tocataLoop = new Audio('mp3/tocata-loop.wav');
 
 var topWeb, leftWeb;
 var thundered = false;
 var tocataplayed = false;
 
-
-
-function Thunder(position) {
-	if (topWeb >= position - 10 && topWeb <= position + 10 && thundered === false) {
-		thunderEffect()
-	}
-}
 
 function thunderEffect() {
 	soundThunder();
@@ -142,7 +153,7 @@ function imageThunder() {
 }
 
 function invertImage() {
-	$('html').toggleClass('invert');
+	$('body').toggleClass('invert');
 }
 
 function showFinishButton(position) {
@@ -159,20 +170,7 @@ function showFinishButton(position) {
 
 function showTextEffect(position, selector, delay) {
 	if (position <= topWeb) {
-		showText(selector, delay)
-	}
-}
-
-function playTocata() {
-	if (tocataplayed === false) {
-		tocataPlayed = true
-		setTimeout(function() {
-			tocataStart.play();
-		}, 3500)
-		setTimeout(function() {
-			tocataLoop.volume = 0.1;
-			tocataLoop.play();
-		}, 16631)
+		showText(selector, delay);
 	}
 }
 
@@ -181,6 +179,19 @@ function showText(selector, delay) {
 	$(selector).css('display', 'inline');
 }
 
+function playTocata() {
+	if (tocataplayed === false) {
+		tocataPlayed = true;
+		setTimeout(function() {
+			tocataStart.play();
+		}, 3500);
+		setTimeout(function() {
+			tocataLoop.volume = 0.1;
+			tocataLoop.play();
+		}, 16631);
+	}
+}
+
+
 
 $('.tlt').textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0 } });
-

@@ -6,8 +6,7 @@
 }
 
 body {
-    background-color: var(--main-bg-color)
-    max-width:80%;
+    background-color: var(--main-bg-color);
 }
 
 body:not button,
@@ -123,7 +122,15 @@ i.fa {
 
 .sec1 {
     max-width: 1200px;
-    margin: auto;
+
+    border: auto;
+}
+
+.parallax-container {
+    width: 100%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -259,6 +266,10 @@ i.fa {
     top: 40%;
 
     font-size: 60px;
+}
+
+.divisor {
+    background-color: var(--main-bg-color);
 }
 
 .text-divisor {
