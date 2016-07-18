@@ -133,7 +133,7 @@ i.fa {
 }
 
 .visuallyhidden {
-    opacity: 0;
+    opacity: 0.1;
 }
 
 .container.warning {

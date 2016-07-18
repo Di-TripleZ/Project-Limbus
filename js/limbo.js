@@ -10,6 +10,10 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: "views/warning.html",
 			controller: "WarningController"
 		})
+		.when("/Darkest-Nightmares", {
+			templateUrl: "views/Ep1View1.html",
+			controller: "Ep1View1Controller"
+		})
 		.otherwise({
 			redirectTo: "/",
 		});
@@ -39,16 +43,22 @@ app.controller("WarningController", ['$scope', function($scope) {
 
 	$('#startBtnWarning').on('click', function() {
 		console.log('Hello World!');
-		thunderEffect()
+		evilLaughSound.play()
 		setTimeout(function() {
-			$(location).attr('href', '/')
-		}, 1800)
+			$(location).attr('href', '#/Darkest-Nightmares')
+		}, 5205)
 	});
 
 }]);
 
+app.controller("Ep1View1Controller", ['$scope', function($scope) {
+
+
+}]);
 
 var thunderSound = new Audio('mp3/thunder.mp3');
+var evilLaughSound = new Audio('mp3/evilLaugh.ogg')
+
 var thundered = false;
 var topWeb, leftWeb;
 
@@ -76,7 +86,6 @@ function Thunder(position) {
 		thunderEffect()
 	}
 }
-
 
 function showFinishButton(position) {
 	if (position <= topWeb) {
@@ -107,7 +116,7 @@ function imageThunder() {
 }
 
 function invertImage() {
-	$('body').toggleClass('invert');
+	$('html').toggleClass('invert');
 }
 
 $('.tlt').textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0 } });
