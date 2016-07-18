@@ -1,21 +1,49 @@
 :root {
-    --main-bg-color: #232128;
     --headerBackgroundColor: #1d1b26;
-    --main-font-color: #A89E86;
+    --main-bg-color: #232128;
+    --main-font-color: #a89e86;
+    --main-title-font-family: "Verdana", "Helvetica Neue", sans-serif;
 }
 
 body {
     background-color: var(--main-bg-color)
+    max-width:80%;
+}
+
+body:not button,
+nav,
+a {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+     -khtml-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 @font-face {
     font-family: "Volkhov";
+
     src: url(/fonts/Volkhov-Regular.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "True-Lies";
+
+    src: url(/fonts/True-Lies.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Wet-Dream";
+
+    src: url(/fonts/Wet-Dream.ttf) format("truetype");
+}
+
 .headerLimbus {
-    background-color: var(--headerBackgroundColor);
     height: 70px;
+
+    background-color: var(--headerBackgroundColor);
 }
 
 .darkBackground {
@@ -29,17 +57,20 @@ body {
 }
 
 nav ul a {
-    transition: background-color .5s, color 2.5s;
-    font-size: 1rem;
-    color: #665F84;
     display: inline-block;
     padding: 0 15px;
+
+    font-size: 1rem;
+
     cursor: pointer;
+    transition: background-color .5s, color 2.5s;
+
+    color: #665f84;
 }
 
 nav ul a:hover {
-    background-color: #6D6D6D;
     color: var(--headerBackgroundColor);
+    background-color: #6d6d6d;
 }
 
 nav,
@@ -47,11 +78,24 @@ nav .nav-wrapper i,
 nav a.button-collapse,
 nav a.button-collapse i {
     height: 70px;
+
     line-height: 70px;
 }
 
 .main-title {
-    color: #ABAAAF;
+    margin: 10px 0;
+
+    font-family: "True-Lies",var(--main-title-font-family);
+
+    color: var(--headerBackgroundColor);
+}
+
+.left-main {
+    padding-right: 100px;
+}
+
+.right-main {
+    padding-left: 100px;
 }
 
 i.fa {
@@ -60,39 +104,43 @@ i.fa {
 }
 
 .sep1 {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0f0f0f+0,000000+16,000000+96,ffffff+100 */
-    background: rgb(15, 15, 15);
-    /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 16%, rgba(0, 0, 0, 1) 96%, rgba(255, 255, 255, 1) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 16%, rgba(0, 0, 0, 1) 96%, rgba(255, 255, 255, 1) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 16%, rgba(0, 0, 0, 1) 96%, rgba(255, 255, 255, 1) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0f0f0f', endColorstr='#ffffff', GradientType=1);
     /* IE6-9 */
     width: 100%;
     max-width: 100%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0f0f0f+0,000000+16,000000+96,ffffff+100 */
+
+    background: rgb(15, 15, 15);
+    /* Old browsers */
+    background:    -moz-linear-gradient(left, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 16%, rgba(0, 0, 0, 1) 96%, rgba(255, 255, 255, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 16%, rgba(0, 0, 0, 1) 96%, rgba(255, 255, 255, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background:         linear-gradient(to right, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 16%, rgba(0, 0, 0, 1) 96%, rgba(255, 255, 255, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    filter: progid:dximagetransform.Microsoft.gradient( startColorstr="#0f0f0f", endColorstr="#ffffff", GradientType=1);
 }
 
 .sec1 {
     max-width: 1200px;
+    margin: auto;
 }
+
 
 .invert {
     -webkit-filter: invert(100%);
-    -moz-filter: invert(100%);
-    -ms-filter: invert(100%);
-    -o-filter: invert(100%);
-    filter: invert(100%);
+       -moz-filter: invert(100%);
+        -ms-filter: invert(100%);
+         -o-filter: invert(100%);
+            filter: invert(100%);
 }
 
 .fa-exclamation-triangle {
-    color: #6D7713;
+    color: #6d7713;
 }
 
 .fa-parallax {
-    color: #72302B;
+    color: #72302b;
 }
 
 .center-title {
@@ -104,13 +152,16 @@ i.fa {
 }
 
 .parallax img {
-    text-align: right;
     display: inline;
+
+    text-align: right;
 }
 
 .intertext3,
 .intertext2 {
     display: none;
+
+    font-family: "True-Lies",var(--main-title-font-family);
 }
 
 .row .col.s12.tlt {
@@ -118,14 +169,17 @@ i.fa {
 }
 
 .parallax-container.parallax3 .light.intertext3 {
-    color: #E0D088;
     width: 30% text-align: left;
+
+    color: #e0d088;
 }
 
 .btn-large.main-btn {
     height: 50px;
-    background-color: var(--main-bg-color) !important;
+
     transition: all 2s linear;
+
+    background-color: var(--main-bg-color) !important;
 }
 
 .hidden {
@@ -133,25 +187,30 @@ i.fa {
 }
 
 .visuallyhidden {
-    opacity: 0.1;
+    opacity: .1;
 }
 
 .container.warning {
-    height: 100%;
     width: 100%;
-    background-color: var(--main-bg-color);
-    padding: 0px;
+    height: 100%;
     max-width: 100%;
     max-height: 100%;
+    padding: 0;
+
     color: var(--main-font-color);
+    background-color: var(--main-bg-color);
 }
 
 .col-md-12.main-warning:not(.btn-large) {
-    text-align: center;
-    font-size: 26px;
-    font-family: 'Volkhov', sans-serif;
-    font-style: italic;
+    position: relative;
+
     padding: 20px 30px 50px;
+
+    font-family: "Volkhov", sans-serif;
+    font-size: 26px;
+    font-style: italic;
+
+    text-align: center;
 }
 
 .warning i {
@@ -159,10 +218,51 @@ i.fa {
 }
 
 .col-md-4.warning {
+    position: relative;
+
     padding: 20px 30px 75px;
 }
 
 #startBtnWarning {
     margin-top: 30px;
+
     font-style: normal;
+}
+
+.transitionToStart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    transition: all 5s ease-out;
+
+    opacity: 0;
+}
+
+.text-slide1,
+.text-slide1-1 {
+    position: absolute;
+    top: 20%;
+    left: 30px;
+
+    display: none;
+
+    font-family: "Wet-Dream", var(--main-title-font-family);
+    font-size: 40px;
+}
+
+.text-slide1-1 {
+    top: 40%;
+
+    font-size: 60px;
+}
+
+.text-divisor {
+    font-family: var(--main-title-font-family);
+
+    color: var(--main-font-color);
 }
