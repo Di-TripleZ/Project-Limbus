@@ -52,7 +52,7 @@ i.fa {
 }
 
 .visuallyhidden {
-    opacity: .1;
+    opacity: 0;
 }
 
 .normal-text {
@@ -63,6 +63,58 @@ i.fa {
 
 .truelies {
     font-family: "True-Lies", var(--main-title-font-family) !important;
+}
+
+.paragraph {
+    padding: 10px 40px;
+
+    font-family: var(--main-title-font-family);
+
+    color: var(--main-font-color);
+}
+
+.big-linear-space {
+    letter-spacing: 50px;
+}
+
+.medium-linear-space {
+    letter-spacing: 30px;
+}
+
+.small-linear-space {
+    letter-spacing: 10px;
+}
+
+.invert {
+    -webkit-filter: invert(100%);
+       -moz-filter: invert(100%);
+        -ms-filter: invert(100%);
+         -o-filter: invert(100%);
+            filter: invert(100%);
+}
+
+.special.paragraph {
+    font-size: 24px;
+
+    text-decoration: bold;
+}
+
+.slow-transition {
+    transition: all 10s ease-in;
+}
+
+.med-transition {
+    transition: all 5s ease-out;
+}
+
+.fast-transition {
+    transition: all 2s ease-out;
+}
+
+.invertException {
+    z-index: 11;
+
+    width: 100%;
 }
 
 
@@ -206,13 +258,7 @@ nav ul a:hover {
     background-color: var(--main-bg-color) !important;
 }
 
-.invert {
-    -webkit-filter: invert(100%);
-       -moz-filter: invert(100%);
-        -ms-filter: invert(100%);
-         -o-filter: invert(100%);
-            filter: invert(100%);
-}
+
 
 
 /* Home Page Ending*/

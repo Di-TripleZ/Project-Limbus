@@ -38,7 +38,7 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 		thunder(400);
 		showTextEffect(800, '.textParallax2', 5);
 		showTextEffect(1200, '.textParallax3', 1.5);
-		showFinishButton(1200);
+		showElement(1200, '#bottomButtonMainPage', 6500);
 	}
 
 	function thunder(position) {
@@ -101,33 +101,55 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 
 	}
 
-	function init12() {
-		showTextEffect(400, '#view11-slide2-text1', 5);
-		setTimeout(settimeout1, 5000)
+	/* Slider 1.2 Lettering */
+
+	function init13() {
+		showTextEffect(600, '#view11-slide2-text1', 5);
+		setTimeout(settimeout1, 5000);
 	}
 
 	function settimeout1() {
-		showTextEffect(400, '#view11-slide2-text2', 5);
-		setTimeout(settimeout2, 5000)
+		showTextEffect(600, '#view11-slide2-text2', 5);
+		setTimeout(settimeout2, 5000);
 	}
 
 	function settimeout2() {
-		showTextEffect(400, '#view11-slide2-text3', 5);
-		setTimeout(settimeout3, 5000)
+		showTextEffect(600, '#view11-slide2-text3', 5);
+		setTimeout(settimeout3, 5000);
 	}
 
 	function settimeout3() {
-		showTextEffect(400, '#view11-slide2-text4', 10);
-		setTimeout(settimeout4, 8000)
+		showTextEffect(600, '#view11-slide2-text4', 10);
+		setTimeout(settimeout4, 8000);
 	}
 
 	function settimeout4() {
-		showTextEffect(400, '#view11-slide2-text5', 50);
-	}
-	function checkEventEp1View1() {
-		init12();
+		showTextEffect(600, '#view11-slide2-text5', 50);
 	}
 
+	/*Lettering finished*/
+
+	function init14() {
+		if (1000 <= topWeb) {
+			changeCSS('.v11e1', 'opacity', '1');
+		}
+	}
+
+	function checkEventEp1View1() {
+		init13();
+		init14();
+		init15();
+	}
+
+	function init15() {
+		if (1300 <= topWeb) {
+			thunderEffect();
+			setTimeout(function() {
+				$('.v11e2').removeClass('hid');
+			},700);
+		}
+
+	}
 	// tocataLoop.addEventListener('ended', function() {
 	// 	this.currentTime = 0;
 	// 	this.play();
@@ -147,9 +169,11 @@ var tocataplayed = false;
 
 
 function thunderEffect() {
-	soundThunder();
-	imageThunder();
-	thundered = true;
+	if (thundered === false) {
+		soundThunder();
+		imageThunder();
+		thundered = true;
+	}
 }
 
 function soundThunder() {
@@ -165,16 +189,17 @@ function imageThunder() {
 
 function invertImage() {
 	$('body').toggleClass('invert');
+	$("body *").not(".invertException").toggleClass('invert');
 }
 
-function showFinishButton(position) {
+function showElement(position, selector, settimeout) {
 	if (position <= topWeb) {
 		setTimeout(function() {
-			$('#bottomButtonMainPage').removeClass('hidden');
-		}, 6500);
+			$(selector).removeClass('hidden');
+		}, settimeout);
 		setTimeout(function() {
-			$('#bottomButtonMainPage').removeClass('visuallyhidden');
-		}, 6520);
+			$(selector).removeClass('visuallyhidden');
+		}, settimeout+20);
 	}
 }
 
@@ -187,7 +212,11 @@ function showTextEffect(position, selector, delay) {
 
 function showText(selector, delay) {
 	$(selector).textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0, delayScale: delay } });
-	$(selector).css('display', 'inline');
+	changeCSS(selector, 'display', 'inline');
+}
+
+function changeCSS(selector, css, change) {
+	$(selector).css(css, change)
 }
 
 function playTocata() {
