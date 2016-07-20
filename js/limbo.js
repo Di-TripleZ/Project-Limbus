@@ -24,6 +24,8 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 
 	window.addEventListener("scroll", updatePosition, false);
 
+
+
 	function updatePosition(event) {
 		topWeb = this.scrollY;
 		leftWeb = this.scrollX;
@@ -34,6 +36,7 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 	}
 
 
+
 	function checkEventHome() {
 		thunder(400);
 		showTextEffect(800, '.textParallax2', 5);
@@ -42,8 +45,8 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 	}
 
 	function thunder(position) {
-		if (topWeb >= position - 10 && topWeb <= position + 10 && thundered === false) {
-			thunderEffect();
+		if (topWeb >= position - 10 && topWeb <= position + 10 && thunderedMainPage === false) {
+			thunderEffect(thunderedMainPage);
 		}
 	}
 
@@ -68,9 +71,8 @@ app.controller("WarningController", ['$scope', function($scope) {
 
 	$('#startBtnWarning').on('click', function() {
 		console.log('Hello World!');
-		evilLaughSound.play();
-		$('.transitionToStart').css('opacity', '1');
-		$('.transitionToStart').css('z-index', '2');
+		changeCSS('.transitionToStart', 'opacity', '1');
+		changeCSS('.transitionToStart', 'z-index', '2');
 		setTimeout(function() {
 			$(location).attr('href', '#/Darkest-Nightmares');
 		}, 5205);
@@ -80,6 +82,8 @@ app.controller("WarningController", ['$scope', function($scope) {
 
 app.controller("Ep1View1Controller", ['$scope', function($scope) {
 
+
+	tocataLoop.addEventListener('ended', loopSound, false)
 	window.addEventListener("scroll", updatePosition, false);
 
 	function updatePosition(event) {
@@ -91,13 +95,24 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 		console.log(topWeb + "," + leftWeb + " Ep1");
 	}
 
+	$(document).ready(init11());
+
+	function checkEventEp1View1() {
+		init13();
+		init14();
+		init15();
+		init18();
+	}
+
 	function init11() {
 		setTimeout(function() {
 			showText('.text-slide1', 4);
-		}, 1);
+		}, 400);
 		setTimeout(function() {
 			showText('.text-slide1-1', 10);
 		}, 3500);
+		thunderEffect(thunderedEp1);
+		playTocata();
 
 	}
 
@@ -135,45 +150,68 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 		}
 	}
 
-	function checkEventEp1View1() {
-		init13();
-		init14();
-		init15();
-	}
-
 	function init15() {
 		if (1300 <= topWeb) {
-			thunderEffect();
+			thunderEffect(thunderedEp1);
 			setTimeout(function() {
-				$('.v11e2').removeClass('hid');
-			},700);
+				$('.v11e22').removeClass('hid');
+			}, 300);
 		}
-
+		setTimeout(function() {
+			$('.v11e21').removeClass('hid');
+		}, 700);
 	}
-	// tocataLoop.addEventListener('ended', function() {
-	// 	this.currentTime = 0;
-	// 	this.play();
-	// }, false);
 
-	init11();
+	function init18() {
+		showElement(2300, '#followthelight', 1000)
+	}
 }]);
+
+/* Scroller Slower Handler */
+if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+
+function wheel(event) {
+	var delta = 0;
+	if (event.wheelDelta) delta = event.wheelDelta / 60;
+	else if (event.detail) delta = -event.detail / 3;
+
+	handle(delta);
+	if (event.preventDefault) event.preventDefault();
+	event.returnValue = false;
+}
+
+function handle(delta) {
+	var time = 1000;
+	var distance = 150;
+
+	$('html, body').stop().animate({
+		scrollTop: $(window).scrollTop() - (distance * delta)
+	}, time);
+}
+/* End of Scroller Slower Handler*/
+
 
 var thunderSound = new Audio('mp3/thunder.mp3');
 var evilLaughSound = new Audio('mp3/evilLaugh.ogg');
 var tocataStart = new Audio('mp3/tocata-start.wav');
 var tocataLoop = new Audio('mp3/tocata-loop.wav');
+var doorCreak = new Audio('mp3/door-creak.mp3')
 
 var topWeb, leftWeb;
-var thundered = false;
+var thunderedMainPage = false;
+var thunderedEp1 = false;
 var tocataplayed = false;
 
 
-function thunderEffect() {
-	if (thundered === false) {
-		soundThunder();
-		imageThunder();
-		thundered = true;
+function thunderEffect(selector) {
+	if (thunderedEp1 === false) {
+		thunderedEp1 = true;
+		//soundThunder();
+		//imageThunder();
+		console.log('KABUUUUM')
 	}
+
 }
 
 function soundThunder() {
@@ -195,11 +233,11 @@ function invertImage() {
 function showElement(position, selector, settimeout) {
 	if (position <= topWeb) {
 		setTimeout(function() {
-			$(selector).removeClass('hidden');
+			$(selector).removeClass('hid');
 		}, settimeout);
 		setTimeout(function() {
 			$(selector).removeClass('visuallyhidden');
-		}, settimeout+20);
+		}, settimeout + 20);
 	}
 }
 
@@ -224,14 +262,30 @@ function playTocata() {
 		tocataPlayed = true;
 		setTimeout(function() {
 			tocataStart.play();
-		}, 3500);
+		}, 1);
 		setTimeout(function() {
-			tocataLoop.volume = 0.1;
-			tocataLoop.play();
-		}, 16631);
+			tocataStart.pause()
+		}, 13131);
 	}
+}
+
+function stopScrollBar() {
+	$('body').addClass('stop-scrolling')
+}
+
+function restartScrollBar() {
+	$('body').removeClass('stop-scrolling')
 }
 
 
 
+function loopSound() {
+	this.currentTime = 0;
+	this.play();
+}
+
 $('.tlt').textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0 } });
+
+$(document).ready(function() {
+	$(".button-collapse").sideNav();
+})
