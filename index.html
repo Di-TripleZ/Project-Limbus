@@ -25,14 +25,22 @@
         <div class="nav-wrapper">
             <a href="#!" class="brand-logo"><img class="navBackground" src="img/DarkBackground.png" alt="Logo"></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <!-- Dropdown Trigger -->
+                <li><a href="sass.html">What is Night Maria</a></li>
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="fa fa-level-down" aria-hidden="true"></i></a></li>
             </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="sass.html">What is Night Maria</a></li>
+                <li><a href="mobile.html">Mobile</a></li>
+            </ul>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
         </div>
     </nav>
     <div ng-view></div>
+    
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/ScrollMagic.min.js"></script>
+    <script src="js/debug.addIndicators.min.js"></script>
+    <script src="js/animation.gsap.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>

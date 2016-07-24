@@ -48,7 +48,7 @@ i.fa {
 }
 
 .hid {
-    display: none;
+    display: none !important;
 }
 
 .visuallyhidden {
@@ -103,7 +103,7 @@ i.fa {
     transition: all 10s ease-in;
 }
 
-.med-transition {
+.mid-transition {
     transition: all 5s ease-out;
 }
 
@@ -117,6 +117,11 @@ i.fa {
     width: 100%;
 }
 
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
 
 /*End Common*/
 
@@ -126,6 +131,9 @@ i.fa {
 .headerLimbus {
     height: 70px;
 
+    font-family: var(--main-title-font-family);
+
+    color: var(--main-font-color);
     background-color: var(--headerBackgroundColor);
 }
 
@@ -259,8 +267,6 @@ nav ul a:hover {
 }
 
 
-
-
 /* Home Page Ending*/
 
 
@@ -345,4 +351,23 @@ nav ul a:hover {
 
 .divisor {
     background-color: var(--main-bg-color);
+}
+
+.light-runner {
+    width: 100%;
+    height: 1400px;
+}
+
+.transition {
+    width: 100%;
+    height: 1px;
+}
+
+#animation {
+    z-index: 2;
+
+    width: 100%;
+    height: 4000px;
+
+    background-color: white;
 }

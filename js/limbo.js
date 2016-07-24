@@ -14,6 +14,10 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: "views/Ep1View1.html",
 			controller: "Ep1View1Controller"
 		})
+		.when("/canvas", {
+			templateUrl: "views/canvas.html",
+			controller: "CanvasController"
+		})
 		.otherwise({
 			redirectTo: "/",
 		});
@@ -25,7 +29,6 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 	window.addEventListener("scroll", updatePosition, false);
 
 
-
 	function updatePosition(event) {
 		topWeb = this.scrollY;
 		leftWeb = this.scrollX;
@@ -34,7 +37,6 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 		checkEventHome();
 		console.log(topWeb + "," + leftWeb);
 	}
-
 
 
 	function checkEventHome() {
@@ -165,31 +167,44 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 	function init18() {
 		showElement(2300, '#followthelight', 1000)
 	}
+
+
+
 }]);
 
-/* Scroller Slower Handler */
-if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
-window.onmousewheel = document.onmousewheel = wheel;
+app.controller("CanvasController", ['$scope', '$window', function($scope, $window) {
 
-function wheel(event) {
-	var delta = 0;
-	if (event.wheelDelta) delta = event.wheelDelta / 60;
-	else if (event.detail) delta = -event.detail / 3;
+	$scope.width = $window.innerWidth
 
-	handle(delta);
-	if (event.preventDefault) event.preventDefault();
-	event.returnValue = false;
-}
 
-function handle(delta) {
-	var time = 1000;
-	var distance = 150;
+}]);
 
-	$('html, body').stop().animate({
-		scrollTop: $(window).scrollTop() - (distance * delta)
-	}, time);
-}
-/* End of Scroller Slower Handler*/
+
+
+
+// /* Scroller Slower Handler */
+// if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+// window.onmousewheel = document.onmousewheel = wheel;
+
+// function wheel(event) {
+// 	var delta = 0;
+// 	if (event.wheelDelta) delta = event.wheelDelta / 60;
+// 	else if (event.detail) delta = -event.detail / 3;
+
+// 	handle(delta);
+// 	if (event.preventDefault) event.preventDefault();
+// 	event.returnValue = false;
+// }
+
+// function handle(delta) {
+// 	var time = 1000;
+// 	var distance = 150;
+
+// 	$('html, body').stop().animate({
+// 		scrollTop: $(window).scrollTop() - (distance * delta)
+// 	}, time);
+// }
+// /* End of Scroller Slower Handler*/
 
 
 var thunderSound = new Audio('mp3/thunder.mp3');
@@ -289,3 +304,5 @@ $('.tlt').textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0 } });
 $(document).ready(function() {
 	$(".button-collapse").sideNav();
 })
+
+
