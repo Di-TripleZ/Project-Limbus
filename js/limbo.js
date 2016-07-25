@@ -84,9 +84,9 @@ app.controller("WarningController", ['$scope', function($scope) {
 
 app.controller("Ep1View1Controller", ['$scope', function($scope) {
 
-$(document).ready(function() {
-	time = new Date();
-})
+	$(document).ready(function() {
+		time = new Date();
+	});
 
 	window.addEventListener("scroll", updatePosition, false);
 
@@ -106,6 +106,7 @@ $(document).ready(function() {
 		init14();
 		init15();
 		init18();
+		init110();
 	}
 
 	function init11() {
@@ -115,7 +116,7 @@ $(document).ready(function() {
 		setTimeout(function() {
 			showText('.text-slide1-1', 10);
 		}, 3500);
-		thunderEffect(thunderedEp1);
+		thunderEffect();
 		playTocata();
 	}
 
@@ -167,16 +168,75 @@ $(document).ready(function() {
 	}
 
 	function init18() {
-		showElement(2300, '#followthelight', 1000)
+		showElement(2300, '#followthelight', 1000);
 	}
 
+	function init110() {
+		updateTimeSpent();
+		if (timeSpent >= badEndingTime) {
+			life();
+			$scope.decision0 = 'Life is just a fight'
+			$scope.decision1 = 'The weak and the strong'
+			$scope.decision2 = 'Just like that'
+			$scope.decision3 = 'Claudia fought hard'
+			$scope.decision4 = 'To survive'
+			$scope.decision5 = 'An overwhelming strength'
+			$scope.decision6 = 'To get out of the comma'
+		} else {
+			$scope.decision0 = 'Standing there'
+			$scope.decision1 = "She didn't had strength"
+			$scope.decision2 = 'Nor patience'
+			$scope.decision3 = 'She stood down'
+			$scope.decision4 = 'Dying step by step'
+			$scope.decision5 = 'Until in the end'
+			$scope.decision6 = 'Everything blacked out'
+			death();
+		}
+	}
 
+	function life() {
+		soundlife();
+		setTimeout(function() {
+			soundlife();
+		}, 300);
+		setTimeout(function() {
+			soundlife();
+		}, 600);
+		setTimeout(function() {
+			soundlife();
+			MedBeep.volume = 0.8
+		}, 900);
+		setTimeout(function() {
+			soundlife();
+			MedBeep.volume = 0.6
+		}, 1200);
+		setTimeout(function() {
+			soundlife();
+			MedBeep.volume = 0.4
+		}, 1500);
+		setTimeout(function() {
+			soundlife();
+			MedBeep.volume = 0.2
+		}, 1800);
+	}
+
+	function death() {
+		sounddeath();
+	}
+
+	function soundlife() {
+		medBeep.play();
+	}
+
+	function sounddeath() {
+		medDeath.play();
+	}
 
 }]);
 
 app.controller("CanvasController", ['$scope', '$window', function($scope, $window) {
 
-	$scope.width = $window.innerWidth
+	$scope.width = $window.innerWidth;
 
 
 }]);
@@ -219,6 +279,7 @@ var medDeath = new Audio('mp3/MedDeath.wav')
 
 var time, timeSpent;
 var topWeb, leftWeb;
+var badEndingTime = 120000
 var thunderedMainPage = false;
 var thunderedEp1 = false;
 var tocataplayed = false;
@@ -311,4 +372,34 @@ function updateTimeSpent() {
 	var end = new Date;
 	timeSpent = end - time;
 	console.log(timeSpent)
+}
+
+function life() {
+	soundlife();
+	setTimeout(function() {
+		soundlife();
+	}, 700);
+	setTimeout(function() {
+		soundlife();
+	}, 1400);
+	setTimeout(function() {
+		soundlife();
+		medBeep.volume = 0.8
+	}, 2100);
+	setTimeout(function() {
+		soundlife();
+		medBeep.volume = 0.6
+	}, 2800);
+	setTimeout(function() {
+		soundlife();
+		medBeep.volume = 0.4
+	}, 3500);
+	setTimeout(function() {
+		soundlife();
+		medBeep.volume = 0.2
+	}, 4200);
+}
+
+function soundlife() {
+	medBeep.play();
 }

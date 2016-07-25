@@ -23,6 +23,13 @@
     src: url(/fonts/Wet-Dream.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 900;
+
+    src: local("Work Sans Black"), local("WorkSans-Black"), url(https://fonts.gstatic.com/s/worksans/v2/Hjn0acvjHfjY_vAK9Uc6gugdm0LZdjqr5-oayXSOefg.woff2) format("woff2");
+}
 
 /* Common */
 
@@ -360,7 +367,7 @@ nav ul a:hover {
     position: relative;
 
     width: 100%;
-    height: 1400px;
+    height: 1360px;
 }
 
 .transition {
@@ -395,4 +402,34 @@ nav ul a:hover {
 
 #ultimo {
     height: 500px;
+}
+
+.afterTransition {
+    width: 100%;
+    height: 10000px;
+
+    background-color: white;
+}
+
+.showDecision {
+    position: absolute;
+    left: 20%;
+
+    padding: 0;
+    margin: 0;
+}
+
+.lightDecision {
+    padding-top: 400px;
+}
+
+.decision {
+    display: inline-block;
+
+    font-family: "Work Sans" ,sans-serif;
+    font-size: 60px;
+}
+
+.transition#transition1 {
+    position: relative;
 }
