@@ -84,8 +84,10 @@ app.controller("WarningController", ['$scope', function($scope) {
 
 app.controller("Ep1View1Controller", ['$scope', function($scope) {
 
+$(document).ready(function() {
+	time = new Date();
+})
 
-	tocataLoop.addEventListener('ended', loopSound, false)
 	window.addEventListener("scroll", updatePosition, false);
 
 	function updatePosition(event) {
@@ -115,7 +117,6 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 		}, 3500);
 		thunderEffect(thunderedEp1);
 		playTocata();
-
 	}
 
 	/* Slider 1.2 Lettering */
@@ -155,6 +156,7 @@ app.controller("Ep1View1Controller", ['$scope', function($scope) {
 	function init15() {
 		if (1300 <= topWeb) {
 			thunderEffect(thunderedEp1);
+			thunderedEp1 = true;
 			setTimeout(function() {
 				$('.v11e22').removeClass('hid');
 			}, 300);
@@ -211,19 +213,26 @@ var thunderSound = new Audio('mp3/thunder.mp3');
 var evilLaughSound = new Audio('mp3/evilLaugh.ogg');
 var tocataStart = new Audio('mp3/tocata-start.wav');
 var tocataLoop = new Audio('mp3/tocata-loop.wav');
-var doorCreak = new Audio('mp3/door-creak.mp3')
+var doorCreak = new Audio('mp3/door-creak.mp3');
+var medBeep = new Audio('mp3/MedBeep.wav');
+var medDeath = new Audio('mp3/MedDeath.wav')
 
+var time, timeSpent;
 var topWeb, leftWeb;
 var thunderedMainPage = false;
 var thunderedEp1 = false;
 var tocataplayed = false;
 
+$(document).ready(function() {
+	$(".button-collapse").sideNav();
+})
+
+
 
 function thunderEffect(selector) {
 	if (thunderedEp1 === false) {
-		thunderedEp1 = true;
-		//soundThunder();
-		//imageThunder();
+		soundThunder();
+		imageThunder();
 		console.log('KABUUUUM')
 	}
 
@@ -255,7 +264,6 @@ function showElement(position, selector, settimeout) {
 		}, settimeout + 20);
 	}
 }
-
 
 function showTextEffect(position, selector, delay) {
 	if (position <= topWeb) {
@@ -292,8 +300,6 @@ function restartScrollBar() {
 	$('body').removeClass('stop-scrolling')
 }
 
-
-
 function loopSound() {
 	this.currentTime = 0;
 	this.play();
@@ -301,8 +307,8 @@ function loopSound() {
 
 $('.tlt').textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0 } });
 
-$(document).ready(function() {
-	$(".button-collapse").sideNav();
-})
-
-
+function updateTimeSpent() {
+	var end = new Date;
+	timeSpent = end - time;
+	console.log(timeSpent)
+}

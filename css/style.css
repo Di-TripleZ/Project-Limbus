@@ -48,7 +48,7 @@ i.fa {
 }
 
 .hid {
-    display: none !important;
+    display: none;
 }
 
 .visuallyhidden {
@@ -122,6 +122,9 @@ i.fa {
     overflow: hidden;
 }
 
+.white {
+    background-color: white;
+}
 
 /*End Common*/
 
@@ -354,6 +357,8 @@ nav ul a:hover {
 }
 
 .light-runner {
+    position: relative;
+
     width: 100%;
     height: 1400px;
 }
@@ -364,10 +369,30 @@ nav ul a:hover {
 }
 
 #animation {
-    z-index: 2;
+    z-index: -1;
 
     width: 100%;
-    height: 4000px;
+    height: 100%;
 
     background-color: white;
+}
+
+.transition#transition1 {
+    position: relative;
+}
+
+#transitionToWhite {
+    position: absolute;
+    z-index: 3;
+
+    width: 100%;
+    height: 1400px;
+    max-width: 100%;
+
+    opacity: 0;
+    background-color: white;
+}
+
+#ultimo {
+    height: 500px;
 }
