@@ -18,6 +18,14 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: "views/finish.html",
 			controller: "FinishLevelController"
 		})
+		.when("/contact", {
+			templateUrl: "views/formContact.html",
+			controller: "ContactController"
+		})
+		.when("/Night-Maria", {
+			templateUrl: "views/nightmaria.html",
+			controller: "WhatIsController"
+		})
 		.otherwise({
 			redirectTo: "/",
 		});
@@ -55,21 +63,26 @@ app.controller("HomeViewController", ['$scope', function($scope) {
 }]);
 
 app.controller("WarningController", ['$scope', function($scope) {
-	var elem = document.body;
-	window.onload = requestFullScreen(elem);
+	
+	/* Full Screen Request */
 
-	function requestFullScreen(element) {
-		var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+	// var elem = document.body;
+	// window.onload = requestFullScreen(elem);
 
-		if (requestMethod) {
-			requestMethod.call(element);
-		} else if (typeof window.ActiveXObject !== "undefined") {
-			var wscript = new ActiveXObject("WScript.Shell");
-			if (wscript !== null) {
-				wscript.SendKeys("{F11}");
-			}
-		}
-	}
+	// function requestFullScreen(element) {
+	// 	var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+	// 	if (requestMethod) {
+	// 		requestMethod.call(element);
+	// 	} else if (typeof window.ActiveXObject !== "undefined") {
+	// 		var wscript = new ActiveXObject("WScript.Shell");
+	// 		if (wscript !== null) {
+	// 			wscript.SendKeys("{F11}");
+	// 		}
+	// 	}
+	// }
+
+	/* Full Screen Request Ending */
 
 	$('#startBtnWarning').on('click', function() {
 		console.log('Hello World!');
@@ -115,7 +128,7 @@ app.controller("Ep1View1Controller", ['$scope', '$window', function($scope, $win
 			showText('.text-slide1', 4);
 		}, 400);
 		setTimeout(function() {
-			showText('.text-slide1-1', 10);
+			showText('.text-slide1-1', 6);
 		}, 3500);
 		thunderEffect();
 		playTocata();
@@ -195,7 +208,6 @@ app.controller("Ep1View1Controller", ['$scope', '$window', function($scope, $win
 				$scope.decision6 = 'Everything blacked out';
 				death();
 				if (topWeb >= 8400 && blackedOut === false) {
-					invertImage();
 					blackedOut = true;
 				}
 			}
@@ -204,8 +216,7 @@ app.controller("Ep1View1Controller", ['$scope', '$window', function($scope, $win
 
 	function initFinish() {
 		if (topWeb >= 10000) {
-			invertImage();
-			$window.location.href = '/finish.html';
+			$window.location.href = "/#/Demo-Finished";
 		}
 	}
 
@@ -261,142 +272,26 @@ app.controller("Ep1View1Controller", ['$scope', '$window', function($scope, $win
 	$scope.decision4 = 'Dying step by step';
 	$scope.decision5 = 'Until in the end';
 	$scope.decision6 = 'Everything blacked out';
+
 }]);
 
 app.controller("FinishLevelController", ['$scope', function($scope) {
 
+	$(document).ready(function() {
+		setTimeout(function() {
+			$('.container.finish').removeClass('visuallyhidden')
+		}, 100);
+	});
+
+
+}]);
+
+app.controller("ContactController", ['$scope', function($scope) {
+
+}]);
+
+app.controller("WhatIsController", ['$scope', function($scope) {
+
 }]);
 
 
-
-
-// /* Scroller Slower Handler */
-// if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
-// window.onmousewheel = document.onmousewheel = wheel;
-
-// function wheel(event) {
-// 	var delta = 0;
-// 	if (event.wheelDelta) delta = event.wheelDelta / 60;
-// 	else if (event.detail) delta = -event.detail / 3;
-
-// 	handle(delta);
-// 	if (event.preventDefault) event.preventDefault();
-// 	event.returnValue = false;
-// }
-
-// function handle(delta) {
-// 	var time = 1000;
-// 	var distance = 150;
-
-// 	$('html, body').stop().animate({
-// 		scrollTop: $(window).scrollTop() - (distance * delta)
-// 	}, time);
-// }
-// /* End of Scroller Slower Handler */
-
-
-var thunderSound = new Audio('mp3/thunder.mp3');
-var evilLaughSound = new Audio('mp3/evilLaugh.ogg');
-var tocataStart = new Audio('mp3/tocata-start.wav');
-var tocataLoop = new Audio('mp3/tocata-loop.wav');
-var doorCreak = new Audio('mp3/door-creak.mp3');
-var medBeep = new Audio('mp3/MedBeep.wav');
-var medDeath = new Audio('mp3/MedDeath.wav')
-
-var time, timeSpent;
-var topWeb, leftWeb;
-var badEndingTime = 120000
-var badEnding = true;
-var thunderedMainPage = false;
-var thunderedEp1 = false;
-var tocataplayed = false;
-var lifeplayed = false;
-var deathplayed = false;
-var blackedOut = false;
-
-$(document).ready(function() {
-	$(".button-collapse").sideNav();
-})
-
-function thunderEffect() {
-	if (thunderedEp1 === false) {
-		soundThunder();
-		imageThunder();
-		console.log('KABUUUUM')
-	}
-}
-
-function soundThunder() {
-	thunderSound.play();
-}
-
-function imageThunder() {
-	setTimeout(invertImage, 0);
-	setTimeout(invertImage, 100);
-	setTimeout(invertImage, 500);
-	setTimeout(invertImage, 700);
-}
-
-function invertImage() {
-	$('body').toggleClass('invert');
-	$("body *").not(".invertException").toggleClass('invert');
-}
-
-function showElement(position, selector, settimeout) {
-	if (position <= topWeb) {
-		setTimeout(function() {
-			$(selector).removeClass('hid');
-		}, settimeout);
-		setTimeout(function() {
-			$(selector).removeClass('visuallyhidden');
-		}, settimeout + 20);
-	}
-}
-
-function showTextEffect(position, selector, delay) {
-	if (position <= topWeb) {
-		showText(selector, delay);
-	}
-}
-
-function showText(selector, delay) {
-	$(selector).textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0, delayScale: delay } });
-	changeCSS(selector, 'display', 'inline');
-}
-
-function changeCSS(selector, css, change) {
-	$(selector).css(css, change)
-}
-
-function playTocata() {
-	if (tocataplayed === false) {
-		tocataPlayed = true;
-		setTimeout(function() {
-			tocataStart.play();
-		}, 1);
-		setTimeout(function() {
-			tocataStart.pause()
-		}, 13131);
-	}
-}
-
-function stopScrollBar() {
-	$('body').addClass('stop-scrolling')
-}
-
-function restartScrollBar() {
-	$('body').removeClass('stop-scrolling')
-}
-
-function loopSound() {
-	this.currentTime = 0;
-	this.play();
-}
-
-$('.tlt').textillate({ in : { effect: 'fadeInLeftBig', initialDelay: 0 } });
-
-function updateTimeSpent() {
-	var end = new Date;
-	timeSpent = end - time;
-	console.log(timeSpent)
-}

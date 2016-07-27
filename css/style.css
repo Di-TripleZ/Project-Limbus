@@ -31,9 +31,13 @@
     src: local("Work Sans Black"), local("WorkSans-Black"), url(https://fonts.gstatic.com/s/worksans/v2/Hjn0acvjHfjY_vAK9Uc6gugdm0LZdjqr5-oayXSOefg.woff2) format("woff2");
 }
 
+
 /* Common */
 
 body {
+    font-family: var(--main-title-font-family);
+
+    color: var(--main-font-color);
     background-color: var(--main-bg-color);
 }
 
@@ -93,11 +97,11 @@ i.fa {
 }
 
 .invert {
-    -webkit-filter: invert(100%);
-       -moz-filter: invert(100%);
-        -ms-filter: invert(100%);
-         -o-filter: invert(100%);
-            filter: invert(100%);
+    -webkit-filter: invert(100%) !important;
+       -moz-filter: invert(100%) !important;
+        -ms-filter: invert(100%) !important;
+         -o-filter: invert(100%) !important;
+            filter: invert(100%) !important;
 }
 
 .special.paragraph {
@@ -132,6 +136,7 @@ i.fa {
 .white {
     background-color: white;
 }
+
 
 /*End Common*/
 
@@ -340,6 +345,8 @@ nav ul a:hover {
 
 /* Episode 1-1 */
 
+
+
 .text-slide1,
 .text-slide1-1 {
     position: absolute;
@@ -356,6 +363,12 @@ nav ul a:hover {
     top: 40%;
 
     font-size: 60px;
+}
+
+.view11-slide2 {
+    width: 500px;
+    height: 400px;
+    margin: 0;
 }
 
 .divisor {
@@ -427,7 +440,7 @@ nav ul a:hover {
     display: block;
     margin: inherit;
 
-    font-family: "Work Sans" ,sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 60px;
 }
 
@@ -435,7 +448,9 @@ nav ul a:hover {
     position: relative;
 }
 
+
 /* Episode 1.1 Ending */
+
 
 /* Finish */
 
@@ -462,8 +477,53 @@ nav ul a:hover {
     text-align: center;
 }
 
-i .finish {
-    padding: 5px;
+.finish i {
+    padding: 10px;
 
     font-size: 60px;
+
+    color: #6d7713;
+}
+
+
+/* Finish Ending */
+
+
+/* Contact */
+
+.contact-type {
+    font-family: "Volkhov", var(--main-title-font-family);
+
+    color: var(--main-font-color);
+}
+
+#sendbutton {
+    margin-top: 10px;
+
+    background-color: var(--headerBackgroundColor);
+}
+
+
+/* Contact Ending */
+
+
+/* What Is NM */
+
+.whatIs {
+    width: 90%;
+}
+
+.whatisTitle {
+    position: relative;
+
+    width: 90%;
+    padding: 20px 30px 50px;
+    margin: auto;
+
+    font-family: "Volkhov";
+    font-size: 26px;
+    font-style: italic;
+
+    text-align: justify;
+    text-justify: inter-word;
 }

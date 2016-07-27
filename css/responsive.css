@@ -1,0 +1,11 @@
+@media screen and (max-width: 980px) {
+    .ep1 {
+        width: 90%;
+    }
+    .text-slide1-1 {
+        font-size: 50px;
+    }
+    .text-slide1 {
+        font-size: 32px;
+    }
+}

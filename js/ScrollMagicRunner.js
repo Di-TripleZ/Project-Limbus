@@ -64,6 +64,7 @@ $(function() {
       duration: 500
     })
     .setPin("#decision6")
+    .on("enter", invertImage)
     .addTo(scrollMagicController);
 
       // Create the Scene and trigger when visible
@@ -76,7 +77,4 @@ $(function() {
     .setTween(tween)
     .addTo(scrollMagicController);
 
-
-  // Add debug indicators fixed on right side
-  scene.addIndicators();
 });
