@@ -8,15 +8,65 @@ $(function() {
   var tween = TweenMax.to('#transitionToWhite', 0.5, {
     opacity: 1,
   });
+
+
   var scene = new ScrollMagic.Scene({
       triggerElement: "#transition2",
-      offset: 420,
+      offset: 500,
       duration: 500
     })
-    .setPin(".showDecision")
+    .setPin("#decision0")
     .addTo(scrollMagicController);
 
-  // Create the Scene and trigger when visible
+  var scene = new ScrollMagic.Scene({
+      triggerElement: "#transition2",
+      offset: 1100,
+      duration: 500
+    })
+    .setPin("#decision1")
+    .addTo(scrollMagicController);
+
+      var scene = new ScrollMagic.Scene({
+      triggerElement: "#transition2",
+      offset: 1700,
+      duration: 500
+    })
+    .setPin("#decision2")
+    .addTo(scrollMagicController);
+
+  var scene = new ScrollMagic.Scene({
+      triggerElement: "#transition2",
+      offset: 2300,
+      duration: 500
+    })
+    .setPin("#decision3")
+    .addTo(scrollMagicController);
+
+      var scene = new ScrollMagic.Scene({
+      triggerElement: "#transition2",
+      offset: 2900,
+      duration: 500
+    })
+    .setPin("#decision4")
+    .addTo(scrollMagicController);
+
+      var scene = new ScrollMagic.Scene({
+      triggerElement: "#transition2",
+      offset: 3500,
+      duration: 500
+    })
+    .setPin("#decision5")
+    .addTo(scrollMagicController);
+
+      var scene = new ScrollMagic.Scene({
+      triggerElement: "#transition2",
+      offset: 4100,
+      duration: 500
+    })
+    .setPin("#decision6")
+    .addTo(scrollMagicController);
+
+      // Create the Scene and trigger when visible
   var scene = new ScrollMagic.Scene({
       triggerElement: '#transition1',
       offset: 1000,
@@ -25,7 +75,6 @@ $(function() {
     })
     .setTween(tween)
     .addTo(scrollMagicController);
-
 
 
   // Add debug indicators fixed on right side
