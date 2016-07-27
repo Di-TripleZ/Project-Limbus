@@ -527,3 +527,22 @@ nav ul a:hover {
     text-align: justify;
     text-justify: inter-word;
 }
+
+#WhatIsWoman {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    opacity: .4;
+}
+
+.fa-heart-o {
+    color: #72302b !important;
+}
+
+.whatIsExplanation *:not(.fa) {
+    font-size: 20px;
+
+    text-align: left;
+}
